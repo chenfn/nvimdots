@@ -47,7 +47,7 @@ opt.listchars = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:>
 opt.cursorlineopt = 'screenline,number' -- Show cursor line only screen line when wrapped
 
 if vim.fn.has('nvim-0.9') == 1 then
-  opt.shortmess:append('C') -- Don't show "Scanning..." messages
+  opt.shortmess:append('C')   -- Don't show "Scanning..." messages
   opt.splitkeep = 'screen'    -- Reduce scroll during window split
 end
 
@@ -68,14 +68,7 @@ opt.tabstop       = 2        -- Insert 2 spaces for a tab
 opt.virtualedit   = 'block'  -- Allow going past the end of line in visual block mode
 
 opt.iskeyword:append('-')  -- Treat dash separated words as a word text object
-
--- Define pattern for a start of 'numbered' list. This is responsible for
--- correct formatting of lists when using `gw`. This basically reads as 'at
--- least one special character (digit, -, +, *) possibly followed some
--- punctuation (. or `)`) followed by at least one space is a start of list
--- item'
 opt.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-
 
 -- # Splling
 opt.spelllang    = 'en,ru,uk'   -- Define spelling dictionaries
@@ -84,16 +77,4 @@ opt.complete:append('kspell') -- Add spellcheck options for autocomplete
 opt.complete:remove('t')      -- Don't use tags for completion
 
 opt.dictionary = vim.fn.stdpath('config') .. '/misc/dict/english.txt' -- Use specific dictionarie
-
--- # Folds
--- opt.foldmethod  = 'indent' -- Set 'indent' folding method
--- opt.foldlevel   = 1        -- Display all folds except top ones
--- opt.foldnestmax = 10       -- Create folds only for some number of nested levels
--- g.markdown_folding = 1   -- Use folding by heading in markdown files
--- 
--- if vim.fn.has('nvim-0.10') == 1 then
---   opt.foldtext = ''        -- Use underlying text with its highlighting
--- end
-
-
 
