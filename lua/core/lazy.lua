@@ -16,7 +16,10 @@ local M = {}
 function M.setup(opts)
   opts = vim.tbl_deep_extend("force", {
     spec = {
-      { import = "plugins" },
+      { import = "plugins.coding" },
+      { import = "plugins.editor" },
+      { import = "plugins.ui" },
+      { import = "plugins.lsp" },
     },
     defaults = { lazy = true },
     checker = { enabled = true },

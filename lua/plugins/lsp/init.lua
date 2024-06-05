@@ -50,7 +50,14 @@ return {
     },
     opts = {
       servers = {
-        lua_ls = {},
+        lua_ls = require("plugins.lsp.servers.lua_ls"),
+        cssls = require("plugins.lsp.servers.cssls"),
+        jsonls = require("plugins.lsp.servers.jsonls"),
+        rust_analyzer = require("plugins.lsp.servers.rust_analyzer"),
+        pylsp = require("plugins.lsp.servers.pylsp"),
+        ruff = {},
+        gopls = {},
+        emmet_ls = {},
       },
       capabilities = {
         underline = true,
@@ -133,7 +140,18 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
+        -- formatter
+        "stylua", -- lua
+        "shfmt", -- shell
+        "black", -- python
+        "prettier", -- vue, ts, html, css, scss, json, jsx, markdown yaml...
+        "gofumpt", -- go
+        "goimports", -- format imports
+        -- linter
+        "ruff", -- python
+        "markdownlint", -- markdown
+        -- utility
+        "isort", -- python: sort imports
       },
       ui = {
         border = "rounded",
